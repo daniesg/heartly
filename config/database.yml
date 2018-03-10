@@ -1,0 +1,31 @@
+# PostgreSQL
+#   gem install pg
+#
+#   Ensure the PostgreSQL gem is defined in your Gemfile
+#   gem 'pg'
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: heartly_dev
+  username: heartly
+  password: admin
+
+test:
+  <<: *default
+  database: heartly_test
+  username: heartly
+  password: admin
+
+production:
+  <<: *default
+  database: heartly
+
+staging:
+  <<: *default
+  database: heartly_staging
