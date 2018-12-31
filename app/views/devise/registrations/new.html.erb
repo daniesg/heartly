@@ -1,29 +1,58 @@
-<h2>Sign up</h2>
+<main class="devise-page mt-8">
+  <%= image_tag "logos/long-pink.svg", class: "devise-page-logo" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <h1 class="devise-page-heading"><%= t ".title" %></h1>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",
+                      placeholder: t(".placeholders.email"),
+                      class: "devise-page-text-input mb-2" %>
+
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name",
+                      placeholder: t(".placeholders.first_name"),
+                      class: "devise-page-text-input mb-2" %>
+
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name",
+                      placeholder: t(".placeholders.last_name"),
+                      class: "devise-page-text-input mb-2" %>
+
+    <%= f.password_field :password, autocomplete: "off",
+                         placeholder: t(".placeholders.password"),
+                         class: "devise-page-text-input mb-3" %>
+
+    <%= f.password_field :password_confirmation, autocomplete: "off",
+                         placeholder: t(".placeholders.password_confirmation"),
+                         class: "devise-page-text-input mb-3" %>
+
+    <%= f.submit t(".register"),
+                 class: "btn btn-primary btn-lg btn-block text-uppercase h4" %>
+  <% end %>
+
+  <div class="mt-3">
+    <%= link_to t("devise.shared.links.no_confirmation_instructions"),
+                new_confirmation_path(resource_name),
+                class: "h5 font-weight-normal text-brand" %>
+    <p class="h5 font-weight-light mt-2">
+      <%= t "devise.shared.links.already_account" %>
+    </p>
+
+    <%= link_to(
+      t("devise.shared.links.login"),
+      new_session_path(resource_name),
+      class: "btn btn-secondary btn-lg btn-block text-uppercase h4"
+    ) %>
   </div>
+</main>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+<% if resource.errors.full_messages.present? %>
+  <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <% resource.errors.full_messages.each do |error| %>
+      <p class="mb-0 small text-white">
+        <%= error %>
+      </p>
+    <% end %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

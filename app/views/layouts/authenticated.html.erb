@@ -1,0 +1,11 @@
+<% provide :css do %>
+  <%= stylesheet_link_tag "authenticated", media: "all" %>
+<% end %>
+
+<header class="header">
+  <%= link_to root_path do %>
+    <%= image_tag "logos/pink.svg", class: "header-logo" %>
+  <% end %>
+</header>
+
+<%= render template: "layouts/application" %>

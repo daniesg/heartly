@@ -6,6 +6,8 @@ class CreatePlans < ActiveRecord::Migration[5.1]
       t.text   :description
 
       t.timestamps null: false
+
+      t.index [:name, :user_id], unique: true, name: :index_plans_on_name
     end
   end
 end
