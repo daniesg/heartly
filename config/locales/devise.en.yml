@@ -6,6 +6,12 @@ en:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      new:
+        title: "Resend Confirmation Instructions"
+        send_instructions: "Send Instructions"
+        already_confirmed: "Already confirmed your email?"
+        placeholders:
+          email: "Email"
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -18,15 +24,31 @@ en:
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Heartly Confirmation Instructions"
+        welcome: "Welcome!"
+        greeting: "Hi %{name},"
+        thanks_and_confirm: "Thanks for joining the Heartly family. Before you continue, please confirm your email address by clicking the button below."
+        confirm: "CONFIRM"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Reset Your Heartly Password"
+        need_help: "Password Changing?"
+        greeting: "Hi %{name},"
+        someone_requested: "Someone has requested a link to change your password. Click the link below to change it."
+        did_not_request: "If you didn't request this, please ignore this email. Your password won't change until you access the link below and create a new one."
+        change: "CHANGE MY PASSWORD"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
-        subject: "Email Changed"
+        subject: "Heartly Email Changed"
       password_change:
-        subject: "Password Changed"
+        subject: "Heartly Password Changed"
+        changed: "Password Changed"
+        greeting: "Hi %{name},"
+        success: "We're just contacting you to let you know your password was sucessfully changed."
+      layout:
+        sent_to: "Sent to <em>%{email}</em>"
+        copyright: "© 2018 Qore, Inc. All rights reserved."
+        reason: "You received this email because you're a member of Heartly, an app that helps with weekly food planning."
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -36,6 +58,18 @@ en:
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
+      edit:
+        title: "Change Your Password"
+        save: "Save"
+        no_change: "Don't want to change your pasword?"
+        placeholders:
+          password: "New Password"
+          confirm_password: "Confirm Password"
+      new:
+        title: "Forgot Your Password?"
+        send_instructions: "Send Instructions"
+        placeholders:
+          email: "Email"
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
@@ -44,14 +78,38 @@ en:
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
+      new:
+        title: "Create an Account"
+        register: "Register"
+        placeholders:
+          email: "Email"
+          first_name: "First Name"
+          last_name: "Last Name"
+          password: "Password"
+          password_confirmation: "Password Confirmation"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      new: 
+        title: "Sign In to Your Account"
+        login: "Login"
+        remember_me: "Remember Me"
+        placeholders:
+          email: "Email"
+          password: "Password"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+    shared:
+      links:
+        no_confirmation_isnstructions: "Didn't receive confirmation instructions?"
+        forgot_password: "Forgot your password?"
+        need_account: "Need an account?"
+        already_account: "Already have an account?"
+        login: "Login"
+        register: "Register"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

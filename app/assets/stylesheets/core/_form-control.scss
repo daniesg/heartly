@@ -1,0 +1,26 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 0;
+}
+
+.form-control {
+  &--borderless {
+    background-color: transparent;
+    border-left-width: 0;
+    border-radius: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+
+    &:focus {
+      background-color: transparent;
+    }
+  }
+
+  @each $name, $colour in $theme-colors {
+    &.#{$name}:focus {
+      border-color: $colour;
+    }
+  }
+}

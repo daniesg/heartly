@@ -4,6 +4,7 @@ Rails.application.configure do
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
+  development_config = Rails.application.config_for(:application).with_indifferent_access
   config.cache_classes = false
 
   # Do not eager load code on boot.
@@ -51,4 +52,17 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.action_controller.default_url_options = { host: 'localhost:3000', protocol: "http" }
+  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: "http" }
+  config.action_mailer.asset_host = 'http://localhost:3000'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => development_config[:mailer][:user_name],
+    :password => development_config[:mailer][:password],
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
 end

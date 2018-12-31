@@ -1,5 +1,25 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<tr>
+  <td class="email-main-logo">
+    <%= image_tag "mailer/account-header.png" %>
+  </td>
+</tr>
+<tr>
+  <td class="email-main-heading">
+    <h1><%= t ".welcome" %></h1>
+  </td>
+</tr>
+<tr>
+  <td class="email-main-content">
+    <p>
+      <%= t ".greeting", name: @user.first_name %>
+      <br>
+      <%= t ".thanks_and_confirm" %>
+    </p>
+  </td>
+</tr>
+<tr>
+  <td class="email-main-action">
+    <%= link_to t(".confirm"),
+                confirmation_url(@resource, confirmation_token: @token) %>
+  </td>
+</tr>
