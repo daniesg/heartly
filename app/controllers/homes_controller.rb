@@ -1,7 +1,10 @@
 class HomesController < ApplicationController
+  layout "authenticated"
+
   def index
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
+    redirect_to(new_user_session_path) && return unless user_signed_in?
+
+    @meals = []
+    gon.meals = []
   end
 end

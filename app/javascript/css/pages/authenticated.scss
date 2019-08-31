@@ -1,0 +1,48 @@
+@import "../core/variables";
+
+.authenticated-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .authenticated-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+
+    &-logo {
+      margin: 25px 25px 0;
+    }
+
+    &-button {
+      color: $navy;
+      font-size: .75rem;
+      font-weight: 600;
+      margin: 25px 25px 0;
+
+      &:hover, &:focus, &:active {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .authenticated-body {
+    flex: 1 0 auto;
+  }
+
+  .authenticated-footer {
+    background-color: $black;
+    padding: 5px;
+    flex: 0 0 auto;
+
+    &-text {
+      margin: 0;
+      color: $white;
+      font-size: .75rem;
+      text-align: center;
+    }
+  }
+}

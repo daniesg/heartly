@@ -1,0 +1,32 @@
+.tooltip {
+
+  &.bs-tooltip-right {
+    .arrow:before {
+      border-right-color: $gray-200;
+    }
+  }
+
+  &.bs-tooltip-top {
+    .arrow:before {
+      border-top-color: $gray-200;
+    }
+  }
+
+  &.bs-tooltip-left {
+    .arrow:before {
+      border-left-color-color: $gray-200;
+    }
+  }
+
+  &.bs-tooltip-bottom {
+    .arrow:before {
+      border-bottom-color: $gray-200;
+    }
+  }
+
+  &-inner {
+    box-shadow: transparentize($black, .75) 0px 0px .25rem;
+    background-color: $gray-200;
+    color: $gray-800;
+  }
+}

@@ -1,11 +1,28 @@
-<% provide :css do %>
-  <%= stylesheet_link_tag "authenticated", media: "all" %>
+<% content_for :js do %>
+  <%= javascript_pack_tag "pages/authenticated" %>
 <% end %>
 
-<header class="header">
-  <%= link_to root_path do %>
-    <%= image_tag "logos/pink.svg", class: "header-logo" %>
-  <% end %>
-</header>
+<%= content_for :application_content do %>
+  <div class="authenticated-page">
+    <header class="authenticated-header">
+      <%= link_to root_path, class: "authenticated-header-logo" do %>
+        <%= image_tag "logos/pink.svg", width: 40 %>
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: :delete,
+                  class: "authenticated-header-button" do %>
+        LOGOUT
+      <% end %>
+    </header>
+
+    <div class="authenticated-body">
+      <%= yield %>
+    </div>
+
+    <footer class="authenticated-footer">
+      <p class="authenticated-footer-text">© 2018-2019 Heartly</p>
+    </footer>
+  </div>
+<% end %>
 
 <%= render template: "layouts/application" %>

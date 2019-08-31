@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 # Use postgres as the database for Active Record
@@ -26,9 +25,16 @@ gem 'redis'
 # Use ActiveModel has_secure_password
 gem 'bcrypt'
 
-gem 'devise'
+# for linting
+gem 'rubocop', require: false
 
+# other gems
+gem 'blueprinter'
+gem 'devise'
+gem 'gon'
 gem 'premailer-rails'
+gem 'pundit'
+gem 'webpacker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -39,6 +45,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -52,11 +59,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Javascript and CSS
-gem 'bootstrap'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-
-source 'https://rails-assets.org' do
-end

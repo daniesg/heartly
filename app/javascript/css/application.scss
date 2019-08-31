@@ -1,0 +1,17 @@
+@import "../css/core/variables";
+@import "~bootstrap/scss/bootstrap";
+
+html, body {
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+}
+
+@import "core/colors";
+@import "core/flex";
+@import "core/form-control";
+@import "core/radio";
+@import "core/slider";
+@import "core/switch";
+@import "core/tooltip";
+@import "core/typography";
